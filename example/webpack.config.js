@@ -4,10 +4,10 @@ var InlineEnviromentVariablesPlugin = require('..');
 module.exports = {
   entry: './index.js',
   output: {
-  	path: './build',
-  	filename: 'index.js'
+    path: './build',
+    filename: 'index.js'
   },
   plugins: [
-	new InlineEnviromentVariablesPlugin()
+    new InlineEnviromentVariablesPlugin()
   ]
 };
