@@ -27,5 +27,8 @@
     "eslint": "^1.10.3",
     "eslint-config-airbnb": "^2.1.1",
     "webpack": "^1.12.9"
+  },
+  "dependencies": {
+    "fn-compose": "^1.1.0"
   }
 }
