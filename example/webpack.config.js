@@ -5,9 +5,9 @@ module.exports = {
   entry: './index.js',
   output: {
     path: './build',
-    filename: 'index.js'
+    filename: 'index.js',
   },
   plugins: [
-    new InlineEnviromentVariablesPlugin()
-  ]
+    new InlineEnviromentVariablesPlugin(),
+  ],
 };
