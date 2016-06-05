@@ -3,10 +3,6 @@ var compose = require('fn-compose');
 
 // make sure replacements is an array
 function ensureReplacementsIsArray(replacements) {
-  if (typeof replacements === 'undefined') {
-    return [process.env];
-  }
-
   if (replacements.constructor !== Array) {
     return [replacements];
   }
@@ -34,11 +30,16 @@ function mergeReplacements(replacements) {
 
 // compose all above actions into a single function
 function normalizeReplacements(replacements) {
+  var finalReplacements = replacements;
+  if (typeof replacements === 'undefined') {
+    finalReplacements = [process.env];
+  }
+
   return compose(
     mergeReplacements,
     convertAllReplacementsToObject,
     ensureReplacementsIsArray
-  )(replacements);
+  )(finalReplacements);
 }
 
 // warn if you are trying to inline a env var that is not defined
