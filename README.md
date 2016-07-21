@@ -13,9 +13,9 @@ npm install --save-dev inline-environment-variables-webpack-plugin
 Usage
 -----
 
-### Inline all enviroment variables
+### Inline all environment variables
 
-If you would like to inline **all** enviroment variables then you can just instantiate the plugin without passing any config, as in the following example.
+If you would like to inline **all** environment variables then you can just instantiate the plugin without passing any config, as in the following example.
 
 
 ```javascript
@@ -29,9 +29,9 @@ var webpackConfig = {
 };
 ```
 
-### Inline only selected enviroment variables
+### Inline only selected environment variables
 
-You can optionally pass a config to select which enviroment variables you would like to inline.
+You can optionally pass a config to select which environment variables you would like to inline.
 
 A config can be either a string an object or an array.
 
@@ -58,12 +58,15 @@ and array config is just a list of string and object configs. It would be define
 new InlineEnviromentVariablesPlugin([
   'SOME_VAR',
   'ANOTHER_ONE',
-  { 
+  {
     NODE_ENV: 'production',
     ONE_MORE: true
   }
 ]);
 ```
 
+### Disable warnings
 
+Pass in an object with `warnings` set to `false`.
 
+`new InlineEnviromentVariablesPlugin({ NODE_ENV: 'production' }, { warnings: false })`
