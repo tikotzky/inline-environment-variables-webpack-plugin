@@ -49,11 +49,13 @@ function warnOnMissingEnvVars(variable) {
   }
 }
 
-function InlineEnviromentVariablesPlugin(replacements) {
+function InlineEnviromentVariablesPlugin(replacements, userOptions) {
+  var defaultOptions = { warnings: true };
   var normalizedConfig = normalizeReplacements(replacements);
+  var options = Object.assign(defaultOptions, userOptions);
 
   var finalConfig = Object.keys(normalizedConfig).reduce(function (config, variable) {
-    warnOnMissingEnvVars(variable);
+    if (options.warnings) warnOnMissingEnvVars(variable);
     config['process.env.' + variable] = JSON.stringify(normalizedConfig[variable]);
     return config;
   }, {});
