@@ -43,8 +43,8 @@ function normalizeReplacements(replacements) {
 }
 
 // warn if you are trying to inline a env var that is not defined
-function warnOnMissingEnvVars(variable) {
-  if (typeof process.env[variable] === 'undefined') {
+function warnOnMissingEnvVars(config, variable) {
+  if (typeof config[variable] === 'undefined') {
     console.warn('You tried to inline "' + variable + '", but it is not defined.');
   }
 }
@@ -55,7 +55,7 @@ function InlineEnviromentVariablesPlugin(replacements, userOptions) {
   var options = Object.assign(defaultOptions, userOptions);
 
   var finalConfig = Object.keys(normalizedConfig).reduce(function (config, variable) {
-    if (options.warnings) warnOnMissingEnvVars(variable);
+    if (options.warnings) warnOnMissingEnvVars(normalizedConfig, variable);
     config['process.env.' + variable] = JSON.stringify(normalizedConfig[variable]);
     return config;
   }, {});
