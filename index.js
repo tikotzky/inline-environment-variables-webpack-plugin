@@ -49,7 +49,7 @@ function warnOnMissingEnvVars(config, variable) {
   }
 }
 
-function InlineEnviromentVariablesPlugin(replacements, userOptions) {
+function InlineEnvironmentVariablesPlugin(replacements, userOptions) {
   var defaultOptions = { warnings: true };
   var normalizedConfig = normalizeReplacements(replacements);
   var options = Object.assign(defaultOptions, userOptions);
@@ -63,4 +63,4 @@ function InlineEnviromentVariablesPlugin(replacements, userOptions) {
   return new webpack.DefinePlugin(finalConfig);
 }
 
-module.exports = InlineEnviromentVariablesPlugin;
+module.exports = InlineEnvironmentVariablesPlugin;

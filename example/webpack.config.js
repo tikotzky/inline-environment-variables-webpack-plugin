@@ -1,5 +1,5 @@
 // var InlineEnviromentVariablesPlugin = require('inline-environment-variables-webpack-plugin');
-var InlineEnviromentVariablesPlugin = require('..');
+var InlineEnvironmentVariablesPlugin = require('..');
 
 module.exports = {
   entry: './index.js',
@@ -8,6 +8,6 @@ module.exports = {
     filename: 'index.js',
   },
   plugins: [
-    new InlineEnviromentVariablesPlugin(),
+    new InlineEnvironmentVariablesPlugin(),
   ],
 };
