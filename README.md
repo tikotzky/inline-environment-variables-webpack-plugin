@@ -19,11 +19,11 @@ If you would like to inline **all** environment variables then you can just inst
 
 
 ```javascript
-var InlineEnviromentVariablesPlugin = require('inline-environment-variables-webpack-plugin');
+var InlineEnvironmentVariablesPlugin = require('inline-environment-variables-webpack-plugin');
 
 var webpackConfig = {
   plugins: [
-    new InlineEnviromentVariablesPlugin()
+    new InlineEnvironmentVariablesPlugin()
   ],
   // other webpack config ...
 };
@@ -38,14 +38,14 @@ A config can be either a string an object or an array.
 ###### string config
 A string config is defined like
 ```js
-new InlineEnviromentVariablesPlugin('NODE_ENV')
+new InlineEnvironmentVariablesPlugin('NODE_ENV')
 ```
 The above config will inline `process.env.NODE_ENV` with the value of `process.env.NODE_ENV` at build time
 
 ###### object config
 an object config is defined like
 ```js
-new InlineEnviromentVariablesPlugin({ NODE_ENV: 'production' });
+new InlineEnvironmentVariablesPlugin({ NODE_ENV: 'production' });
 ```
 
 The above config will inline `process.env.NODE_ENV` with the value specified in the config. So in the above example it would change it to `'production'`;
@@ -55,7 +55,7 @@ The above config will inline `process.env.NODE_ENV` with the value specified in 
 and array config is just a list of string and object configs. It would be defined like
 
 ```js
-new InlineEnviromentVariablesPlugin([
+new InlineEnvironmentVariablesPlugin([
   'SOME_VAR',
   'ANOTHER_ONE',
   {
@@ -69,4 +69,4 @@ new InlineEnviromentVariablesPlugin([
 
 Pass in an object with `warnings` set to `false`.
 
-`new InlineEnviromentVariablesPlugin({ NODE_ENV: 'production' }, { warnings: false })`
+`new InlineEnvironmentVariablesPlugin({ NODE_ENV: 'production' }, { warnings: false })`
