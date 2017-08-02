@@ -1,4 +1,4 @@
-// var InlineEnviromentVariablesPlugin = require('inline-environment-variables-webpack-plugin');
+// var InlineEnvironmentVariablesPlugin = require('inline-environment-variables-webpack-plugin');
 var InlineEnvironmentVariablesPlugin = require('..');
 
 module.exports = {
